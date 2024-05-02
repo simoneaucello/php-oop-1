@@ -2,9 +2,9 @@
 
 require_once __DIR__ . '/Model/Movie.php';
 
-$ritornoAlFuturo = new Movie('Ritorno al Futuro', '1985', 'Fantascienza');
+$ritornoAlFuturo = new Movie('Ritorno al Futuro', 1985, ['Comico', 'Fantascienza']);
 
-$theMatrix = new Movie('The Matrix', '1999', 'Fantascienza');
+$theMatrix = new Movie('The Matrix', 1999, ['Fantascienza']);
 
 
 
@@ -29,8 +29,18 @@ $theMatrix = new Movie('The Matrix', '1999', 'Fantascienza');
 <body>
   <div class="container my-5 text-center">
     <h1 class="mb-5">Movies List</h1>
-    <h3 class="mb-5"><?php echo $ritornoAlFuturo->getMovieInfo() ?></h3>
-    <h3><?php echo $theMatrix->getMovieInfo() ?></h3>
+    <div class="movie-box">
+      <h3><?php echo $ritornoAlFuturo->getMovieInfo() ?></h3>
+      <?php foreach ($ritornoAlFuturo->genres as $genre) : ?>
+        <h6><?php echo $genre ?></h6>
+      <?php endforeach; ?>
+
+    </div>
+    <h3 class="mt-5"><?php echo $theMatrix->getMovieInfo() ?></h3>
+    <?php foreach ($theMatrix->genres as $genre) : ?>
+      <h6><?php echo $genre ?></h6>
+    <?php endforeach; ?>
+
   </div>
 
 </body>

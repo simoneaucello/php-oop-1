@@ -2,20 +2,20 @@
 
 class Movie
 {
-  public $nome;
-  public $anno;
-  public $genere;
+  public $title;
+  public $year;
+  public $genres;
 
 
-  public function __construct(string $_nome, string $_anno, string $_genere)
+  public function __construct(string $_title, int $_year, array $_genres)
   {
-    $this->nome = $_nome;
-    $this->anno = $_anno;
-    $this->genere = $_genere;
+    $this->title = $_title;
+    $this->year = $_year;
+    $this->genres = $_genres;
   }
 
   public function getMovieInfo()
   {
-    return "$this->nome | $this->anno | $this->genere";
+    return "$this->title | $this->year";
   }
 }
